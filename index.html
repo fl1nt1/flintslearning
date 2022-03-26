@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="https://po.fl1nt.repl.co/fotos/fl1nt.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <title>flintslearning</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+      <div id="details" style="position:absolute;right:0;;height:100%;width:0%;overflow:hidden;transition-duration:0.2s;">
+        <h1 id="vak" style="margin-left:20px;"></h1>
+        <h2 id="lokaal" style="margin-left:20px;"></h2>
+        <span class="material-icons" onclick="cdetails()" style="position:absolute;right:20px;top:20px;">close</span>
+      </div>
+      <nav>
+          <a href="./index.html">Rooster</a>
+          <a href="./cijfers.html">Cijfers</a>
+          <a href="./settings.html" style="position:absolute;bottom:0px;">Settings</a>
+      </nav>
+      <script src="./index.js" defer></script>
+      <div class="calander" id="calender">
+          <div class="header">
+              <ul class="weekdays">
+                  <li>Maandag</li>
+                  <li>Dinsdag</li>
+                  <li>Woensdag</li>
+                  <li>Donderdag</li>
+                  <li>Vrijdag</li>
+              </ul>
+          </div>
+      
+          <div class="timeslots-container">
+              <ul class="timeslots">
+                  <li>8:00</li>
+                  <li>9:00</li>
+                  <li>10:00</li>
+                  <li>11:00</li>
+                  <li>12:00</li>
+                  <li>13:00</li>
+                  <li>14:00</li>
+                  <li>15:00</li>
+                  <li>16:00</li>
+              </ul>
+          </div>
+          <div class="event-container" id="event-container">
+          </div>
+      </div>
+      <div id="week"><p id="w-back" onclick="weekr(-1)">&#60;&#60;&nbsp;&nbsp;</p><h3 id="w">Week </h3><p id="w-fw" onclick="weekr(1)">&nbsp;&nbsp;&#62;&#62;</p></div>
+      <div id="details" style="display:none;align-content:center;justify-content:center;position:absolute;left:85%;height:100%;width:0%;overflow:hidden;">
+        
+      </div>
+  </body>
+</html>

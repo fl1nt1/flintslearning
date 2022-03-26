@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="https://po.fl1nt.repl.co/fotos/fl1nt.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <title>flintslearning</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <a href="./index.html">Rooster</a>
+        <a href="./cijfers.html">Cijfers</a>
+        <a href="./settings.html" style="position:absolute;bottom:0px;">Settings</a>
+    </nav>
+    <div class="settings">
+        <p style="display:contents;padding:10px;" id="key">Jouw zapi key: </p>
+        <input type="text" id="zapi"></input>
+        <button onclick="setCookie('zapi',document.getElementById('zapi').value, 365)">Save</button>
+        <br>
+      <p style="display:contents;padding:10px;" id="key">Jouw leerlingnummer: </p>
+        <input type="text" id="llnmr"></input>
+        <button onclick="setCookie('llnmr',document.getElementById('llnmr').value, 365)">Save</button>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p style="display:contents;padding:10px;" id="key">Nog geen zapi key?<br></br>Jouw koppelcode: </p>
+        <input type="text" id="koppelcode"></input>
+        <button onclick="token(document.getElementById('koppelcode').value.replace(/\s/g, ''))">Get token</button>
+    </div>
+  
+  <script>
+    document.getElementById('llnmr').value = getCookie('llnmr')
+    document.getElementById('zapi').value = getCookie('zapi')
+    
+  async function token(koppelcode) { 
+   const res = await fetch(`https://api-1.fl1nt.repl.co/api/token/12345?koppelcode=${koppelcode}`)
+  const json = await res.json()
+    setCookie('zapi', json, 365)
+    document.getElementById('zapi').value = json
+  }
+
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    console.log("cookie set: " + cname + ", " + cvalue)
+  }
+    
+  function getCookie(cname) {
+    let name = cname + "=";
+    console.log("")
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length)
+      }
+    }
+    return "";
+  }
+    
+  </script>
+  
+</body>
+</html>

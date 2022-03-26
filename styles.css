@@ -1,0 +1,200 @@
+body{
+  background-color: #000b14;
+  font-family: 'Raleway', sans-serif;
+  overflow: hidden;
+  margin: 0;
+}
+
+nav{
+    position: absolute;
+    width: 15%;
+    height: 100%;
+    background-color: #001220;
+    color: white;
+}
+
+a{
+    display: block;
+    width: 100%;
+    height: 2em;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #001220;
+    transition-duration: 0.2s;
+    color: white;
+}
+
+a:hover{
+    display: block;
+    width: 100%;
+    height: 2em;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #001e35;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    color: white;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.calander {
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    ". header"
+    "timeslots-container main";
+  width: 85%;
+  margin-left: 15%;
+  transition-duration: 0.2s;
+}
+
+.weekdays, .daynumbers {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top:10px;
+}
+
+.weekdays {
+    color: white;
+}
+
+.header {
+    grid-area: header;
+}
+
+.timeslots-container {
+    grid-area: timeslots-container;
+    justify-content: left;
+}
+
+.timeslots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeslots li {
+    height: 10vh;
+    color: white;
+}
+
+.timeslots li::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    width: 85%;
+    height: 1px;
+    background: lightgray;
+    z-index: 1;
+    left: 15%;
+}
+
+.event-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(54, 1fr); /* bij meer vakjes aanpassen */
+    grid-area: main;
+    position: relative;
+}
+
+.les {
+    position: absolute;
+    background: rgba(144, 238, 144, 0.95);
+    z-index: 5;
+    color: white;
+}
+
+.canceled {
+    background: rgba(255, 160, 122, 0.95);
+    z-index: 5;
+    color: white;
+    position: absolute;
+}
+
+.act {
+    background: rgba(255, 231, 122, 0.95);
+    z-index: 5;
+    color: white;
+    position: absolute;
+}
+
+.canceled .material-icons {
+    float: right;
+}
+
+.info {
+    margin-left: 5px;
+    padding-top: 5px;
+}
+
+#les{
+  width: 15vw;
+  transition-duration: 0.2s;
+}
+
+.day1 {
+    grid-column: 1;
+}
+.day2 {
+    grid-column: 2;
+}
+.day3 {
+    grid-column: 3;
+}
+.day4 {
+    grid-column: 4;
+}
+.day5 {
+    grid-column: 5;
+}
+
+.lokaal {
+    margin-right: 5px;
+    margin-top: 0px;
+}
+
+#week{
+    width: 85%;
+    margin-left: 15%;
+    text-align: center;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#w-back:hover{
+  cursor: pointer;
+}
+
+#w-fw:hover{
+  cursor: pointer;
+}
+
+.settings{
+    width: 85%;
+    height:90vh;
+    margin-left: 15%;
+    color: white;
+    padding:5vh;
+}
+
+#details{
+  background-color: #ffffff;
+  color: white;
+  z-index: 2;
+}
